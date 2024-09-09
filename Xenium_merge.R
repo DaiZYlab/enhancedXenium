@@ -342,43 +342,5 @@ ggsave("~/R/Xenium/CAP2_featureplot.pdf", plot =p2, width = 6, height = 3, devic
 p3 <- ImageFeaturePlot(subset_data_EC, features = c("Sox17"),fov = c('fov.1', 'fov.3'), size = 0.75, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =0, dark.background = FALSE,scale = c("all"))
 p1 <- ImageFeaturePlot(subset_data_EC, features = c("Plvap"),fov = c('fov.1', 'fov.3'), size = 0.75, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =1, dark.background = FALSE,scale = c("all"))
 p2 <- ImageFeaturePlot(subset_data_EC, features = c("Prx"),fov = c('fov.1', 'fov.3'), size = 0.75, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =1, dark.background = FALSE,scale = c("all"))
-ImageFeaturePlot(subset_data_EC, features = c("Fibin"),fov = c('fov.1', 'fov.3'), size = 1, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =1, dark.background = FALSE,scale = c("all"))
-ImageFeaturePlot(subset_data_EC, features = c("Pmp22"),fov = c('fov.1', 'fov.3'), size = 1, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =1, dark.background = FALSE,scale = c("all"))
-ImageFeaturePlot(subset_data_EC, features = c("Kdr"),fov = c('fov.1', 'fov.3'), size = 1, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =1, dark.background = FALSE,scale = c("all"))
-ImageFeaturePlot(subset_data_EC, features = c("Fbln5"),fov = c('fov.1', 'fov.3'), size = 1, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =1, dark.background = FALSE,scale = c("all"))
-ImageFeaturePlot(subset_data_EC, features = c("Plvap"),fov = c('fov.1', 'fov.3'), size = 1, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =1, dark.background = FALSE,scale = c("all"))
-ImageFeaturePlot(subset_data_EC, features = c("Plvap"),fov = c('fov.1', 'fov.3'), split.by = "group", size = 1, cols = c("white", "red"),coord.fixed = FALSE, min.cutoff =1, dark.background = FALSE,scale = c("all"))
-
-#subview of cells
-
-cropped.coords.1 <- Crop(x.merge_anf2[["fov.1"]], y = c(1200, 2900), x = c(3050, 4050), coords = "plot")
-x.merge_anf2[["zoom.1"]] <- cropped.coords.1
-# visualize cropped area with cell segmentations & selected molecules
-DefaultBoundary(x.merge_anf2[["zoom.1"]]) <- "segmentation"
-ImageDimPlot(x.merge_anf2, fov = "zoom.1", axes = TRUE, border.color = "white", border.size = 0.1, cols = "polychrome",
-             coord.fixed = FALSE, molecules = c("Plvap", "Sox17"), nmols = 10000)
-
-ImageDimPlot(x.merge_anf2, fov = "zoom.1", axes = TRUE, border.color = "white", border.size = 0.1, molecules = c("Plvap", "Sox17"), nmols = 10000)
-ImageDimPlot(x.merge_anf2, fov = "zoom.1", molecules = c("Kdr"), nmols = 20000, coord.fixed = FALSE, group.by = "predicted.celltype")
-
-
-cropped.coords.3 <- Crop(x.merge_anf2[["fov.3"]], y = c(1200, 2900), x = c(3050, 4050), coords = "plot")
-x.merge_anf2[["zoom.3"]] <- cropped.coords.3
-DefaultBoundary(x.merge_anf2[["zoom.3"]]) <- "segmentation"
-
-ImageDimPlot(
-  object = subset_data_AEC,
-  fov = c('zoom.1', 'zoom.3'),
-  split.by = "sample",
-  cols = c("red", "yellow"), coord.fixed = FALSE,axes = TRUE, border.color = "white"
-)
-
-
-ImageDimPlot(
-  object = subset_data_AEC,
-  fov = c('zoom.1', 'zoom.3'),
-  split.by = "sample",
-  cols = c("red", "yellow"), coord.fixed = FALSE,axes = TRUE, border.color = "white", molecules = c("Plvap", "Sox17")
-)
 
 
