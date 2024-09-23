@@ -10,6 +10,7 @@ H_E.zip
 Information about output files can be found here:
 https://www.10xgenomics.com/support/in-situ-gene-expression/documentation/steps/onboard-analysis/understanding-xenium-outputs
 
+The Xenium processed data was stored in figshare (doi: 10.6084/m9.figshare.26967154)
 In addition, the integrated dataset in R is each provided as:
 x.merge_anf2.rds
 
